@@ -11,13 +11,11 @@ import com.stefanini.aceleraDevs.model.Aluno;
 import com.stefanini.aceleraDevs.model.Curso;
 import com.stefanini.aceleraDevs.model.DadosPessoais;
 import com.stefanini.aceleraDevs.model.Disciplina;
-import com.stefanini.aceleraDevs.model.Endereco;
 import com.stefanini.aceleraDevs.model.Turma;
 import com.stefanini.aceleraDevs.repository.AlunoRepository;
 import com.stefanini.aceleraDevs.repository.CursoRepository;
 import com.stefanini.aceleraDevs.repository.DadosPessoaisRepository;
 import com.stefanini.aceleraDevs.repository.DisciplinaRepository;
-import com.stefanini.aceleraDevs.repository.EnderecoRepository;
 import com.stefanini.aceleraDevs.repository.TurmaRepository;
 
 @Configuration
@@ -29,8 +27,7 @@ public class TestConfiguration {
                                         CursoRepository cursoRepository,
                                         DadosPessoaisRepository dadosPessoaisRepository,
                                         DisciplinaRepository disciplinaRepository,
-                                        TurmaRepository turmaRepository,
-                                        EnderecoRepository enderecoRepository) {
+                                        TurmaRepository turmaRepository) {
         return args -> {
             Turma turma = new Turma();
             turmaRepository.save(turma);
@@ -44,7 +41,11 @@ public class TestConfiguration {
                     "teste@teste.com",
                     "411039003",
                     "11987654321",
-                    new Endereco(null,"Rua Teste","37","São Paulo","São Paulo","03069010")
+                    "Rua Teste",
+                    "37",
+                    "São Paulo",
+                    "São Paulo",
+                    "03069010"
                     );
             Aluno joao = new Aluno(null,
                     "Joao",

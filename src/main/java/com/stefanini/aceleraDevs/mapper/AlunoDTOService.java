@@ -38,7 +38,12 @@ public class AlunoDTOService {
                 aluno.getEmail(),
                 aluno.getTelefone(),
                 aluno.getRg(),
-                aluno.getEndereco());
+                aluno.getRua(),
+                aluno.getNumero(),
+                aluno.getCidade(),
+                aluno.getEstado(),
+                aluno.getCep()
+                );
         dadosPessoaisService.save(dadosPessoais);
 
         Aluno newAluno = new Aluno(null,

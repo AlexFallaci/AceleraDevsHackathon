@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.stefanini.aceleraDevs.model.Aluno;
-import com.stefanini.aceleraDevs.model.Endereco;
 
 public class AlunoDTO {
 
@@ -29,7 +28,16 @@ public class AlunoDTO {
 
     private Long idCurso;
 
-    private Endereco endereco;
+    private String rua;
+	
+    private String numero;
+        
+    private String cidade;
+    
+    private String estado;
+    
+    private String cep;
+
 
     public AlunoDTO() {
     }
@@ -44,23 +52,32 @@ public class AlunoDTO {
         this.idCurso = aluno.getCurso().getId();
         this.telefone = aluno.getDadosPessoais().getTelefone();
         this.rg = aluno.getDadosPessoais().getRg();
-        this.endereco = aluno.getDadosPessoais().getEndereco();
+        this.rua = aluno.getDadosPessoais().getRua();
+        this.numero = aluno.getDadosPessoais().getNumero();
+        this.cidade = aluno.getDadosPessoais().getCidade();
+        this.estado = aluno.getDadosPessoais().getEstado();
+        this.cep = aluno.getDadosPessoais().getCep();
     }
 
     public AlunoDTO(Long id, String nome, String matricula, String cpf, String email, String telefone, String rg,
-            Endereco endereco, Long idTurma, Long idCurso) {
-        this.id = id;
-        this.nome = nome;
-        this.matricula = matricula;
-        this.cpf = cpf;
-        this.email = email;
-        this.idTurma = idTurma;
-        this.idCurso = idCurso;
-        this.telefone = telefone;
-        this.rg = rg;
-        this.endereco = endereco;
+			Long idTurma, Long idCurso, String rua, String numero, String cidade, String estado, String cep) {
 
-    }
+		this.id = id;
+		this.nome = nome;
+		this.matricula = matricula;
+		this.cpf = cpf;
+		this.email = email;
+		this.telefone = telefone;
+		this.rg = rg;
+		this.idTurma = idTurma;
+		this.idCurso = idCurso;
+		this.rua = rua;
+		this.numero = numero;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
+	}
+
 
     public String getNome() {
         return nome;
@@ -134,15 +151,47 @@ public class AlunoDTO {
         this.rg = rg;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
+    public String getRua() {
+		return rua;
+	}
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
 
-    public static boolean validaPattern(String pattern, String texto) {
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public static boolean validaPattern(String pattern, String texto) {
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(texto);
 
@@ -179,7 +228,7 @@ public class AlunoDTO {
 
     public static boolean validaDadosPessoais(Aluno aluno) {
         if (validaRg(aluno.getDadosPessoais().getRg()) && validaTelefone(aluno.getDadosPessoais().getTelefone())
-                && validaCep(aluno.getDadosPessoais().getEndereco().getCep())) {
+                && validaCep(aluno.getDadosPessoais().getCep())) {
             return true;
         }
         return false;

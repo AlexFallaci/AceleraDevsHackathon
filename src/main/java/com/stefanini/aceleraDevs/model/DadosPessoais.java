@@ -36,22 +36,39 @@ public class DadosPessoais {
 	@Column(nullable = false)
 	private String rg;
 
-	@OneToOne(cascade=CascadeType.PERSIST)
-	private Endereco endereco;
+	@Column(nullable = false)
+    private String rua;
+	
+    @Column(nullable = false)
+    private String numero;
+    
+    @Column(nullable = false)
+    private String cidade;
+    
+    @Column(nullable = false)
+    private String estado;
+    
+    @Column(nullable = false)
+    private String cep;
 
 	public DadosPessoais() {
 
 	}
 
-	public DadosPessoais(Long id, @CPF String cpf, @Email String email, String telefone, String rg, Endereco endereco) {
+	public DadosPessoais(Long id, @CPF String cpf, @Email String email, String telefone, String rg, String rua, String numero, String cidade, String estado, String cep) {
 		this.id = id;
 		this.cpf = cpf;
 		this.email = email;
 		this.rg = rg;
 		this.telefone = telefone;
-		this.endereco = endereco;
+		this.rua = rua;
+		this.numero = numero;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
 
 	}
+
 
 	public Long getId() {
 		return id;
@@ -89,12 +106,44 @@ public class DadosPessoais {
 		this.rg = rg;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
+	public String getRua() {
+		return rua;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 
 }

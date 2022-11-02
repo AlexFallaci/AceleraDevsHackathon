@@ -6,7 +6,6 @@ import com.stefanini.aceleraDevs.exception.AlunoNotFoundException;
 import com.stefanini.aceleraDevs.exception.TurmaNotFoundException;
 import com.stefanini.aceleraDevs.model.Aluno;
 import com.stefanini.aceleraDevs.model.DadosPessoais;
-import com.stefanini.aceleraDevs.model.Endereco;
 import com.stefanini.aceleraDevs.model.Turma;
 import com.stefanini.aceleraDevs.service.AlunoService;
 import com.stefanini.aceleraDevs.service.TurmaService;
@@ -27,7 +26,15 @@ public class AlunoForm {
 	@NotNull
     private Long idTurma;
 	@NotNull
-	private Endereco endereco;
+    private String rua;	
+	@NotNull
+    private String numero;
+    @NotNull
+    private String cidade;
+    @NotNull
+    private String estado;
+    @NotNull
+    private String cep;
 	
 	
 	public String getNome() {
@@ -65,8 +72,28 @@ public class AlunoForm {
 	}
 
 
-	public Endereco getEndereco() {
-		return endereco;
+	public String getRua() {
+		return rua;
+	}
+
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+	public String getCidade() {
+		return cidade;
+	}
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public String getCep() {
+		return cep;
 	}
 
 
@@ -79,7 +106,11 @@ public class AlunoForm {
 		dadosPessoais.setEmail(this.email);
 		dadosPessoais.setRg(rg);
 		dadosPessoais.setTelefone(telefone);
-		dadosPessoais.setEndereco(endereco);
+		dadosPessoais.setRua(rua);
+		dadosPessoais.setNumero(numero);
+		dadosPessoais.setCidade(cidade);
+		dadosPessoais.setEstado(estado);
+		dadosPessoais.setCep(cep);
 		aluno.setDadosPessoais(dadosPessoais);
 		aluno.setMatricula(this.matricula);
 		aluno.setTurma(turma);
