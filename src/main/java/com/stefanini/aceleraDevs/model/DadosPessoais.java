@@ -1,12 +1,10 @@
 package com.stefanini.aceleraDevs.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -30,25 +28,25 @@ public class DadosPessoais {
 	@Column(nullable = false)
 	private String email;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String telefone;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String rg;
 
-	@Column(nullable = false)
+//    @Column(nullable = false)
     private String rua;
 	
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String numero;
     
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String cidade;
     
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String estado;
     
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String cep;
 
 	public DadosPessoais() {
